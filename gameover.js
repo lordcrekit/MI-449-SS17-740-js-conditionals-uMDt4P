@@ -1,16 +1,16 @@
-if (Math.random() < 0.5) {
-  var years = 10*d20.roll('5d20+10')
-} else {
-  var years = 10*d20.roll('2d20+3d6+5')
+var years = d20.roll('1d2') === 1
+  ? 10 * d20.roll('5d20+10')
+  : 10 * d20.roll('2d20+3d6+5')
+
+var unit
+var round2 = d20.roll('1d20')
+
+if (round2 < 5) {
+  unit = 'billion'
+} else if (round2 < 11) {
+  unit = 'million'
+} else if (round2 < 15) {
+  unit = 'thousand'
 }
-var round2 = Math.random()
-if (round2 < .1) {
-  var unit = 'billion'
-} else if (round2 < .3) {
-  var unit = 'million'
-} else if (round2 < .7) {
-  var unit = 'thousand'
-} else {
-  var unit;
-}
-document.getElementById("years").textContent =  years + (unit ? ' ' + unit : '');
+
+document.getElementById('years').textContent = years + (unit ? ' ' + unit : '')
